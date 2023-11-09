@@ -1,36 +1,34 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 
-interface User {
-  id: number;
-  name: string;
-}
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
+import Cadastro from './pages/cadastro/Cadastro';
+import Home from './pages/home/Home';
+import { AuthProvider } from './contexts/AuthContext';
+import ListaTemas from './components/temas/listaTemas/ListaTemas';
+
 
 function App() {
-
-  const [users, setUsers] = useState<User[]>([]);
-
-  useEffect(() => {
-    axios.get<User[]>('https://jsonplaceholder.typicode.com/users')
-      .then(response => {
-        setUsers(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
-
   return (
-    <div>
-      <h1>Lista de usuários</h1>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+    <AuthProvider>
+        <BrowserRouter>
+          <Navbar />
+          <div className='min-h-[80vh]'>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro" element={<Cadastro />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/temas" element={<ListaTemas />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
+        </AuthProvider>
+    </>
   );
 }
-
 export default App;

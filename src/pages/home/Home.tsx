@@ -3,9 +3,6 @@ import ListaPostagens from '../../components/Postagens/listaPostagens/ListaPosta
 import ModalPostagem from '../../components/Postagens/modalPostagem/ModalPostagem';
 import './Home.css';
 
-
-
-
 function Home() {
     return (
         <>
@@ -28,6 +25,7 @@ function Home() {
           </div>
         </div>
         <ListaPostagens />
+
       </>
     );
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 
 import Navbar from './components/navbar/Navbar';
@@ -11,6 +10,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import ListaTemas from './components/temas/listaTemas/ListaTemas';
 import FormularioTema from './components/temas/formularioTema/FormularioTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
+import Perfil from './pages/perfil/Perfil';
+import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem';
 import FormularioPostagem from './components/Postagens/formularioPostagem/FormularioPostagem';
 import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens';
 
@@ -34,6 +35,8 @@ function App() {
               <Route path="/postagens" element={<ListaPostagens />} />
               <Route path="/cadastroPostagem" element={<FormularioPostagem />} />
               <Route path="/editarPostagem/:id" element={<FormularioPostagem />} />
+              <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />

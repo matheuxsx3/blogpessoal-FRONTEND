@@ -1,5 +1,3 @@
-import './App.css';
-
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -14,12 +12,14 @@ import Perfil from './pages/perfil/Perfil';
 import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem';
 import FormularioPostagem from './components/Postagens/formularioPostagem/FormularioPostagem';
 import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
     <>
     <AuthProvider>
+      <ToastContainer/>
         <BrowserRouter>
           <Navbar />
           <div className='min-h-[80vh]'>
